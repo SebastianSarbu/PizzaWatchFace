@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2017 The Android Open Source Project
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<resources>
+
+    private static final int COLOR_YELLOW = 0xffFFEE58;
+    private static final int COLOR_RED = 0x;
+    private static final int COLOR_LIGHT_RED = 0x;
+    <color name="green">#ff66BB6A</color>
+    <color name="light_green">#ffC8E6C9</color>
+    <color name="purple">#ff5C6BC0</color>
+    <color name="light_purple">#ffC5CAE9</color>
+    <color name="red">#ffEF5350</color>
+    <color name="light_red">#ffFFCDD2</color>
+    <color name="yellow">#ffFFEE58</color>
+    <color name="light_yellow">#ffFFF9C4</color>
+    <color name="gray">#ffeeeeee</color>
+    <color name="black">#000000</color>
+</resources>

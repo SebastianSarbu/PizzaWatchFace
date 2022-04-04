@@ -1,5 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2017 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
 <resources>
-    <string name="app_name">PizzaWatchFace</string>
-    <string name="message">Watch face tapped</string>
-    <string name="my_analog_name">My Analog</string>
+    <string name="app_name">Pizza watchface</string>
+    <string name="black_background_circle">black background circle</string>
+    <string name="top_left_ranged_image_view">top left ranged image view</string>
+    <string name="top_left_ranged_image_button">top left ranged image button</string>
+    <string name="top_left_image_button">top left image button</string>
+    <string name="top_right_ranged_image_view">top right ranged image view</string>
+    <string name="top_right_ranged_image_button">top right ranged image button</string>
+    <string name="top_left_image_view">top left image view</string>
+    <string name="top_image_view">top image view</string>
+    <string name="top_image_button">top image button</string>
+    <string name="top_right_image_view">top right image view</string>
+    <string name="top_right_image_button">top right image button</string>
+    <string name="left_image_view">left image view</string>
+    <string name="left_image_button">left image button</string>
+    <string name="center_image_view">center image view</string>
+    <string name="center_image_button">center image button</string>
+    <string name="right_image_view">right image view</string>
+    <string name="right_image_button">right image button</string>
+    <string name="bottom_image_view">bottom image view</string>
+    <string name="bottom_image_button">bottom image button</string>
+    <string name="bottom_left_ranged_image_view">bottom left ranged image view</string>
+    <string name="bottom_left_image_button">bottom left image button</string>
+    <string name="bottom_right_ranged_image_view">bottom right ranged image view</string>
+    <string name="bottom_right_ranged_image_button">bottom right ranged image button</string>
 </resources>
