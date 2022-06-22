@@ -28,10 +28,10 @@ import android.support.wearable.complications.ComplicationProviderInfo;
 import android.support.wearable.complications.ProviderChooserIntent;
 import android.support.wearable.complications.ProviderInfoRetriever;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-
-import com.example.pizzawatchface.PizzaWatchFaceService;
+import android.widget.Switch;
 
 import java.util.concurrent.Executors;
 
@@ -51,18 +51,26 @@ public class ComplicationConfigActivity extends Activity implements View.OnClick
 
     private ImageView mRightComplicationBackground;
     private ImageView mTopRightComplicationBackground;
+    private ImageView mTopRightRangedComplicationBackground;
     private ImageView mTopComplicationBackground;
     private ImageView mTopLeftComplicationBackground;
+    private ImageView mTopLeftRangedComplicationBackground;
     private ImageView mLeftComplicationBackground;
     private ImageView mBottomComplicationBackground;
+    private ImageView mBottomLeftRangedComplicationBackground;
+    private ImageView mBottomRightRangedComplicationBackground;
     private ImageView mCenterComplicationBackground;
 
     private ImageButton mRightComplication;
     private ImageButton mTopRightComplication;
+    private ImageButton mTopRightRangedComplication;
     private ImageButton mTopComplication;
     private ImageButton mTopLeftComplication;
+    private ImageButton mTopLeftRangedComplication;
     private ImageButton mLeftComplication;
     private ImageButton mBottomComplication;
+    private ImageButton mBottomLeftRangedComplication;
+    private ImageButton mBottomRightRangedComplication;
     private ImageButton mCenterComplication;
 
     private Drawable mDefaultAddComplicationDrawable;
@@ -80,7 +88,6 @@ public class ComplicationConfigActivity extends Activity implements View.OnClick
         mWatchFaceComponentName =
                 new ComponentName(getApplicationContext(), PizzaWatchFaceService.class);
 
-
         mRightComplicationBackground = findViewById(R.id.right_complication_background);
         mRightComplication = findViewById(R.id.right_complication);
         setUpComplication(mRightComplicationBackground, mRightComplication);
@@ -88,6 +95,10 @@ public class ComplicationConfigActivity extends Activity implements View.OnClick
         mTopRightComplicationBackground = findViewById(R.id.top_right_complication_background);
         mTopRightComplication = findViewById(R.id.top_right_complication);
         setUpComplication(mTopRightComplicationBackground, mTopRightComplication);
+
+        mTopRightRangedComplicationBackground = findViewById(R.id.top_right_ranged_complication_background);
+        mTopRightRangedComplication = findViewById(R.id.top_right_ranged_complication);
+        setUpComplication(mTopRightRangedComplicationBackground, mTopRightRangedComplication);
 
         mTopComplicationBackground = findViewById(R.id.top_complication_background);
         mTopComplication = findViewById(R.id.top_complication);
@@ -97,6 +108,10 @@ public class ComplicationConfigActivity extends Activity implements View.OnClick
         mTopLeftComplication = findViewById(R.id.top_left_complication);
         setUpComplication(mTopLeftComplicationBackground, mTopLeftComplication);
 
+        mTopLeftRangedComplicationBackground = findViewById(R.id.top_left_ranged_complication_background);
+        mTopLeftRangedComplication = findViewById(R.id.top_left_ranged_complication);
+        setUpComplication(mTopLeftRangedComplicationBackground, mTopLeftRangedComplication);
+
         mLeftComplicationBackground = findViewById(R.id.left_complication_background);
         mLeftComplication = findViewById(R.id.left_complication);
         setUpComplication(mLeftComplicationBackground, mLeftComplication);
@@ -105,9 +120,28 @@ public class ComplicationConfigActivity extends Activity implements View.OnClick
         mBottomComplication = findViewById(R.id.bottom_complication);
         setUpComplication(mBottomComplicationBackground, mBottomComplication);
 
+        mBottomRightRangedComplicationBackground = findViewById(R.id.bottom_right_ranged_complication_background);
+        mBottomRightRangedComplication = findViewById(R.id.bottom_right_ranged_complication);
+        setUpComplication(mBottomRightRangedComplicationBackground, mBottomRightRangedComplication);
+
+        mBottomLeftRangedComplicationBackground = findViewById(R.id.bottom_left_ranged_complication_background);
+        mBottomLeftRangedComplication = findViewById(R.id.bottom_left_ranged_complication);
+        setUpComplication(mBottomLeftRangedComplicationBackground, mBottomLeftRangedComplication);
+
         mCenterComplicationBackground = findViewById(R.id.center_complication_background);
         mCenterComplication = findViewById(R.id.center_complication);
         setUpComplication(mCenterComplicationBackground, mCenterComplication);
+
+        PizzaWatchFaceService.Engine e = PizzaWatchFaceService.getEngine();
+        Switch mHollowSwitch = findViewById(R.id.hollow_switch);
+        mHollowSwitch.setChecked(e.getHollowMode());
+        mHollowSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                PizzaWatchFaceService.Engine e = PizzaWatchFaceService.getEngine();
+                e.setHollowMode(b);
+            }
+        });
 
         // Initialization of code to retrieve active complication data for the watch face.
         mProviderInfoRetriever =
@@ -192,14 +226,22 @@ public class ComplicationConfigActivity extends Activity implements View.OnClick
             launchComplicationHelperActivity(ComplicationLocation.RIGHT);
         } else if (view.equals(mTopRightComplication)) {
             launchComplicationHelperActivity(ComplicationLocation.TOP_RIGHT);
+        } else if (view.equals(mTopRightRangedComplication)) {
+            launchComplicationHelperActivity(ComplicationLocation.TOP_RIGHT_RANGED);
         } else if (view.equals(mTopComplication)) {
             launchComplicationHelperActivity(ComplicationLocation.TOP);
         } else if (view.equals(mTopLeftComplication)) {
             launchComplicationHelperActivity(ComplicationLocation.TOP_LEFT);
+        } else if (view.equals(mTopLeftRangedComplication)) {
+            launchComplicationHelperActivity(ComplicationLocation.TOP_LEFT_RANGED);
         } else if (view.equals(mLeftComplication)) {
             launchComplicationHelperActivity(ComplicationLocation.LEFT);
         } else if (view.equals(mBottomComplication)) {
             launchComplicationHelperActivity(ComplicationLocation.BOTTOM);
+        } else if (view.equals(mBottomRightRangedComplication)) {
+            launchComplicationHelperActivity(ComplicationLocation.BOTTOM_RIGHT_RANGED);
+        } else if (view.equals(mBottomLeftRangedComplication)) {
+            launchComplicationHelperActivity(ComplicationLocation.BOTTOM_LEFT_RANGED);
         } else if (view.equals(mCenterComplication)) {
             launchComplicationHelperActivity(ComplicationLocation.CENTER);
         }
@@ -250,14 +292,22 @@ public class ComplicationConfigActivity extends Activity implements View.OnClick
             updateComplicationView(complicationProviderInfo, mRightComplication, mRightComplicationBackground);
         } else if (watchFaceComplicationId == TOP_RIGHT_COMPLICATION_ID) {
             updateComplicationView(complicationProviderInfo, mTopRightComplication, mTopRightComplicationBackground);
+        } else if (watchFaceComplicationId == TOP_RIGHT_RANGED_COMPLICATION_ID) {
+            updateComplicationView(complicationProviderInfo, mTopRightRangedComplication, mTopRightRangedComplicationBackground);
         } else if (watchFaceComplicationId == TOP_COMPLICATION_ID) {
             updateComplicationView(complicationProviderInfo, mTopComplication, mTopComplicationBackground);
         } else if (watchFaceComplicationId == TOP_LEFT_COMPLICATION_ID) {
             updateComplicationView(complicationProviderInfo, mTopLeftComplication, mTopLeftComplicationBackground);
+        } else if (watchFaceComplicationId == TOP_LEFT_RANGED_COMPLICATION_ID) {
+            updateComplicationView(complicationProviderInfo, mTopLeftRangedComplication, mTopLeftRangedComplicationBackground);
         } else if (watchFaceComplicationId == LEFT_COMPLICATION_ID) {
             updateComplicationView(complicationProviderInfo, mLeftComplication, mLeftComplicationBackground);
         } else if (watchFaceComplicationId == BOTTOM_COMPLICATION_ID) {
             updateComplicationView(complicationProviderInfo, mBottomComplication, mBottomComplicationBackground);
+        } else if (watchFaceComplicationId == BOTTOM_LEFT_RANGED_COMPLICATION_ID) {
+            updateComplicationView(complicationProviderInfo, mBottomLeftRangedComplication, mBottomLeftRangedComplicationBackground);
+        } else if (watchFaceComplicationId == BOTTOM_RIGHT_RANGED_COMPLICATION_ID) {
+            updateComplicationView(complicationProviderInfo, mBottomRightRangedComplication, mBottomRightRangedComplicationBackground);
         } else if (watchFaceComplicationId == CENTER_COMPLICATION_ID) {
             updateComplicationView(complicationProviderInfo, mCenterComplication, mCenterComplicationBackground);
         }

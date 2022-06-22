@@ -39,4 +39,5 @@
     <string name="bottom_left_image_button">bottom left image button</string>
     <string name="bottom_right_ranged_image_view">bottom right ranged image view</string>
     <string name="bottom_right_ranged_image_button">bottom right ranged image button</string>
+    <string name="hollow">Hollow</string>
 </resources>

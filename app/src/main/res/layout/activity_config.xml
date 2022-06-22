@@ -15,6 +15,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/watchface_background"
             android:orientation="vertical">
             <LinearLayout
                 android:id="@+id/circle_layout"
@@ -35,6 +36,66 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         app:layout_constraintGuide_percent=".2"/>
+                    <LinearLayout
+                        android:id="@+id/row1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/percent_20">
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:paddingEnd="10dp"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:id="@+id/top_left_ranged_complication_background"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="@string/top_left_ranged_image_view"
+                                android:src="@drawable/added_complication" />
+
+                            <ImageButton
+                                android:id="@+id/top_left_ranged_complication"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="@string/top_left_ranged_image_button"
+                                android:layout_alignTop="@id/top_left_ranged_complication_background"
+                                android:layout_alignBottom="@id/top_left_ranged_complication_background"
+                                android:layout_alignStart="@id/top_left_ranged_complication_background"
+                                android:layout_alignEnd="@id/top_left_ranged_complication_background" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:paddingStart="10dp"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:id="@+id/top_right_ranged_complication_background"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="@string/top_right_ranged_image_view"
+                                android:src="@drawable/added_complication" />
+                            <ImageButton
+                                android:id="@+id/top_right_ranged_complication"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="@string/top_right_ranged_image_button"
+                                android:layout_alignTop="@id/top_right_ranged_complication_background"
+                                android:layout_alignBottom="@id/top_right_ranged_complication_background"
+                                android:layout_alignStart="@id/top_right_ranged_complication_background"
+                                android:layout_alignEnd="@id/top_right_ranged_complication_background" />
+                        </RelativeLayout>
+                    </LinearLayout>
 
                     <androidx.constraintlayout.widget.Guideline
                         android:id="@+id/percent_40"
@@ -265,10 +326,94 @@
                             android:layout_alignEnd="@id/bottom_complication_background"
                             android:scaleType="fitCenter" />
                     </RelativeLayout>
-\
+
+                    <LinearLayout
+                        android:id="@+id/row5"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        app:layout_constraintTop_toBottomOf="@id/percent_80"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:baselineAligned="false">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:paddingEnd="10dp">
+
+                            <ImageView
+                                android:id="@+id/bottom_left_ranged_complication_background"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="@string/bottom_left_ranged_image_view"
+                                android:src="@drawable/added_complication" />
+
+                            <ImageButton
+                                android:id="@+id/bottom_left_ranged_complication"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="@string/bottom_left_image_button"
+                                android:layout_alignTop="@id/bottom_left_ranged_complication_background"
+                                android:layout_alignBottom="@id/bottom_left_ranged_complication_background"
+                                android:layout_alignStart="@id/bottom_left_ranged_complication_background"
+                                android:layout_alignEnd="@id/bottom_left_ranged_complication_background"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:paddingStart="10dp">
+
+                            <ImageView
+                                android:id="@+id/bottom_right_ranged_complication_background"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="@string/bottom_right_ranged_image_view"
+                                android:src="@drawable/added_complication" />
+
+                            <ImageButton
+                                android:id="@+id/bottom_right_ranged_complication"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="@string/bottom_right_ranged_image_button"
+                                android:layout_alignTop="@id/bottom_right_ranged_complication_background"
+                                android:layout_alignBottom="@id/bottom_right_ranged_complication_background"
+                                android:layout_alignStart="@id/bottom_right_ranged_complication_background"
+                                android:layout_alignEnd="@id/bottom_right_ranged_complication_background"/>
+                        </RelativeLayout>
+                    </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:weightSum="2"
+            android:paddingTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hollow"/>
+            <Switch
+                android:id="@+id/hollow_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"/>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
